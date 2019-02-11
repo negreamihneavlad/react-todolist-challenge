@@ -1,36 +1,35 @@
 import React, { Component } from "react";
 
-import './index.css';
-import Button from '../button';
+import { map } from "lodash-es";
+
+import "./index.css";
+import Item from "./item";
 
 class List extends Component {
+  render() {
+    const { todos, changeTodo, removeTodo } = this.props;
 
-    render() {
-        return (
-            <table>
-                <thead>
-                    <tr>
-                        <th width='66%'>Item</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Item</td>
-                        <td>
-                            <Button type='edit' onClick={''}>
-                                Edit
-                            </Button>
-                            <Button type='delete' onClick={''}>
-                                Delete
-                            </Button> 
-                        </td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-        );
-    }
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th width="66%">Items</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {map(todos, (todo, index) => (
+            <Item
+              key={index}
+              todo={todo}
+              changeTodo={changeTodo}
+              removeTodo={removeTodo}
+            />
+          ))}
+        </tbody>
+      </table>
+    );
+  }
 }
 
 export default List;

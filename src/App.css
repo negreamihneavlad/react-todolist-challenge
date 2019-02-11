@@ -1,5 +1,10 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.error {
+  float: right;
+  color: red;
 }
